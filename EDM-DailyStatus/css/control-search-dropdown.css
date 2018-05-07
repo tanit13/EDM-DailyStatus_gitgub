@@ -1,0 +1,19 @@
+﻿
+        @media (min-width: 768px) {
+            .input-group-addon:first-child {
+                font-size: 1em;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .input-group-addon:first-child {
+                font-size: .8em;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .input-group-addon:first-child {
+                font-size: 1em;
+            }
+        }
+

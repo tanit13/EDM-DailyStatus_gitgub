@@ -1,0 +1,36 @@
+﻿.bd-content {
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: .2rem;
+}
+
+.btn-custom {
+    font-size: 11px !important;
+    width: 72px !important;
+    height: 30px !important;
+}
+
+#div_table_alert {
+    /*display: block !important;*/
+    height: 700px !important;
+    /*overflow-y: scroll !important;*/
+}
+
+.button_status {
+    border: none;
+    color: white;
+    padding: 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    max-height: 5px;
+    border-radius: 50%;
+}
+
+a.menu-links {
+    cursor: pointer;
+}
