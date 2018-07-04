@@ -68,7 +68,7 @@ namespace EDM_DailyStatus
         {
 
             List<MonitorStatus> lst = new List<MonitorStatus>();
-            OracleReportDAO oraReportDao = new OracleReportDAO();
+            OracleReportDAO oraReportDao = new OracleReportDAO();       
             StringBuilder strBld = new StringBuilder();
              
             lst = oraReportDao.getReportEDWStatus(status);

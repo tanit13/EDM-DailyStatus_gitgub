@@ -31,7 +31,7 @@
         <!-- --- menu bar ---->
 
         <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Service Management</a>            
+            <a class="navbar-brand" href="#">Service Management</a>
             <%--<button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
             </button>--%>
@@ -78,6 +78,8 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                             <a class="dropdown-item">Backup</a>
                             <a class="dropdown-item">Clear Log</a>
+                            <a class="dropdown-item" href="FormTodayErrorLog.aspx">Error Log</a>
+                            <a class="dropdown-item" href="FormCalendar.aspx">Calendar</a>
                         </div>
                     </li>
                 </ul>
@@ -92,6 +94,8 @@
 
         <!-- main -->
         <div class="row">
+                
+
             <!-- menu -->
             <%-- <div class="list-group col-12 col-md-2 col-sm-2 ">
                 <a class="list-group-item" href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Main</a>
@@ -145,7 +149,7 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-4" style="height: 20px;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="24">80%</div>
                                 </div>
                                 <%-- <p class="text-muted mt-3">
                                     <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;Finished
@@ -219,7 +223,9 @@
                                     </div>
                                     <div class="align-text-top">
                                         <div class="fluid-container">
-                                            <h4 class="card-title font-weight-bold text-right mb-0">BIG & DV</h4>
+                                            <a href="FormBigdata.aspx">
+                                                <h4 class="card-title font-weight-bold text-right mb-0 text-dark">BIG & DV</h4>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -235,52 +241,6 @@
 
 
                 </div>
-
-               
-
-<%--                <div class="row">
-                    <div class="col-sm-12">
-                        <div style="sc"></div>
-                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-                        <script type="text/javascript">
-                            google.charts.load("current", { packages: ["timeline"] });
-                            google.charts.setOnLoadCallback(drawChart);
-                            function drawChart() {
-
-                                var container = document.getElementById('example5.1');
-                                var chart = new google.visualization.Timeline(container);
-                                var dataTable = new google.visualization.DataTable();
-                                dataTable.addColumn({ type: 'string', id: 'Room' });
-                                dataTable.addColumn({ type: 'string', id: 'Name' });
-                                dataTable.addColumn({ type: 'date', id: 'Start' });
-                                dataTable.addColumn({ type: 'date', id: 'End' });
-                                dataTable.addRows([
-                                    ['17-04-2018', 'OPEDWIMeet', new Date(2018, 1, 19, 06, 19, 44), new Date(2018, 1, 20, 07, 19, 09)],
-                                    ['18-04-2018', 'OPEDWIMiss', new Date(2018, 1, 20, 07, 22, 02), new Date(2018, 1, 21, 08, 50, 29)],
-                                    ['19-04-2018', 'OPEDWIMiss', new Date(2018, 1, 21, 11, 17, 32), new Date(2018, 2, 22, 13, 03, 07)]
-
-                                ]);
-
-                                var options = {
-                                    timeline: { colorByRowLabel: false }
-                                    //displayAnnotationsFilter: true
-                                };
-
-                                chart.draw(dataTable, options);
-                            }
-
-                        </script>
-                        <div id="chart_wrapper">
-                            <div style="overflow-x:scroll;overflow-y:hidden;width:400px;">
-                            <div id="example5.1" style='width: 400px; height: 5000px;'></div>
-                                </div>
-
-                        </div>
-
-                    </div>
-                </div>--%>
-
 
 
             </div>

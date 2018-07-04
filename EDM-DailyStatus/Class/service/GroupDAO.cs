@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using TDR.Class;
@@ -14,6 +15,7 @@ namespace EDM_DailyStatus.Class.service
             List<Group> lst_group = new List<Group>();
             TeraManager tmm = new TeraManager();
             DataTable dt = new DataTable();
+            
 
             try {
                 string strQuery = string.Empty;
@@ -22,6 +24,7 @@ namespace EDM_DailyStatus.Class.service
 
                 dt = tmm.GetDataTableTera(strQuery);
                 Group obj_group;
+
 
                 for (int i=0; i<dt.Rows.Count; i++)
                 {

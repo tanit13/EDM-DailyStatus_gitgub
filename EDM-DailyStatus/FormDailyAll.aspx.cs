@@ -23,7 +23,7 @@ namespace EDM_DailyStatus
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             System.Console.Out.Write("");
             //Thread t1 = new Thread(new ThreadStart(GetEDMProject));
  
@@ -71,7 +71,9 @@ namespace EDM_DailyStatus
             string str_project = "";
             try
             {
-                string myQuery = " select DISTINCT PROJECT FROM  DATALAB_OPER.PSS_GRP_ATTB_DAILY_4WEB_R2  WHERE  TIER = 'TIER1' AND PROJECT IS NOT NULL AND PROJECT <> ''  ORDER BY 1 ";
+                //string myQuery = " select DISTINCT PROJECT FROM  DATALAB_OPER.PSS_GRP_ATTB_DAILY_4WEB_R2  WHERE  TIER = 'TIER1' AND PROJECT IS NOT NULL AND PROJECT <> ''  ORDER BY 1 ";
+
+                string myQuery = " SELECT PROJECT FROM DATALAB_OPER.PSS_FOCUS_SLA_PROJECT GROUP BY PROJECT ";
 
                 DataTable dt = new DataTable();
                 // tmm.TDUsername = Request.Cookies["myCookie_Trackingsrc"]["user"].ToString();
@@ -137,7 +139,9 @@ namespace EDM_DailyStatus
                         }                        
                     }                    
                 }
-            }
+                Console.Out.WriteLine("for debug");
+            }          
+
             catch(Exception e)
             {
                 System.Console.WriteLine(e.Message.ToString());
@@ -195,11 +199,8 @@ namespace EDM_DailyStatus
         {
             string str_current_date = "";
             DateTime dt = DateTime.Now; // Or whatever
-            str_current_date = dt.ToString("dddd, d-MMM-yyyy hh:mm tt");
-            //lt_footer.Text = "EDM DAILY STATUS By (EIM)Production Support on " + getDateTime;
+            str_current_date = dt.ToString("dddd, d-MMM-yyyy hh:mm tt");            
             return str_current_date;
-
-
         }
 
         private StringBuilder GetStream(string strSourceName, string tierID, string status)

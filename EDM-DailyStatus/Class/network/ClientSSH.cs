@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using EDM_DailyStatus.Class.service;
 using Renci.SshNet;
 
 namespace EDM_DailyStatus.Class.network
 {
     public class ClientSSH
-    {
+    { 
+        
         //192.168.33.108 dsadm/g=up'.s,j
         public string sentSshCommand(string host, string user, string password, string commandText) {
 
@@ -18,6 +20,8 @@ namespace EDM_DailyStatus.Class.network
 
                 var ssh_command = client.CreateCommand(commandText);
                 str_result = ssh_command.Execute();
+                
+                
                 
             }
 

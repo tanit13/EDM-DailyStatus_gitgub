@@ -35,6 +35,12 @@
     <!-- css common -->
     <link rel="stylesheet" href="css_status/common.css" />
 
+    <!-- test morris.js Line Chart -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
+    <%--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>--%>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
     <!-- js and css for datepicker -->
     <%-- <script src="js/bootstrap-datepicker.js"></script>
     <link rel="stylesheet" href="css/datepicker.css" />--%>
@@ -42,7 +48,11 @@
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" />
 
+    <script src="js_chart/chart_morris_bar.js" type="text/javascript"></script>
     <script>
+
+
+
         $(document).ready(function () {
             $('#tbl_today_error').DataTable({
                 columns: [
@@ -63,6 +73,11 @@
                 uiLibrary: 'bootstrap4'
                 , format: 'yyyy-mm-dd'
             });
+
+
+            chartMorrisBarGroupTop();
+            chartMorrisBarIssueTop();
+            chartMorrisLineIssue();
 
         });
 
@@ -97,6 +112,111 @@
                 }
             });
         }
+
+
+
+        function chartMorrisBarGroupTop() {
+
+            $.ajax({
+                type: "POST",
+                url: "FormTodayErrorLog.aspx/dataSummarGroupTop",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log('ajax btn_success..');
+
+                    var dataBar = JSON.parse(response.d);
+
+                    Morris.Bar({
+                        element: 'morris_bar_group_top5',
+                        data: dataBar,
+                        xkey: 'Name',
+                        ykeys: ['Total'],
+                        labels: ['Series A', 'Series B'],
+                        horizontal: true,
+                        stacked: true,
+                        hideHover: true,
+                        barColors:['#f8ac59']
+                    });
+
+                },
+                failure: function (response) {
+                    alert('ajax failed btn_search');
+                    alert(response.d);
+                }
+            });
+
+        }
+
+
+        function chartMorrisBarIssueTop() {
+
+            $.ajax({
+                type: "POST",
+                url: "FormTodayErrorLog.aspx/dataSummarIssueTop",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log('ajax btn_success..');
+
+                    var dataBar = JSON.parse(response.d);
+
+                    Morris.Bar({
+                        element: 'morris_bar_issue_top5',
+                        data: dataBar,
+                        xkey: 'Name',
+                        ykeys: ['Total'],
+                        labels: ['Series A', 'Series B'],
+                        horizontal: true,
+                        stacked: true,
+                        hideHover: true,
+                        barColors:['#23c6c8']
+                    });
+
+                },
+                failure: function (response) {
+                    alert('ajax failed btn_search');
+                    alert(response.d);
+                }
+            });
+
+        }
+
+        function chartMorrisLineIssue() {
+
+            $.ajax({
+                type: "POST",
+                url: "FormTodayErrorLog.aspx/dataReportSummaryIssue",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log('ajax btn_success..');
+
+                    var dataLine = JSON.parse(response.d);
+
+                    Morris.Area({
+                        element: 'morris_line_chart',
+                        lineColors: ['#55cdb4'],
+                        pointSize: '0px',
+                        data: dataLine,
+
+                        xkey: 'Name',
+                        ykeys: ['Total'],
+                        labels: ['Total'],
+                        hideHover: true,
+                        parseTime: false
+                    });
+
+                },
+                failure: function (response) {
+                    alert('ajax failed btn_search');
+                    alert(response.d);
+                }
+            });
+
+        }
+
+
 
     </script>
 
@@ -165,6 +285,38 @@
         <!-- main -->
     </div>
     <form id="frmTodayError" runat="server">
+        <div class="row p-1">
+            <div class="col-12">
+                <div class="card rounded-0">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card-body">
+                                <h6 style="font-weight: 800">Summary Top 5 Group</h6>
+                                <div id="morris_bar_group_top5" style="height: 200px;"></div>
+                            </div>
+                        </div>
+                        <div class="col-6 border-left">
+                            <div class="card-body">
+                               <h6 style="font-weight: 800">Summary Top 5 Issue</h6>
+                                <div id="morris_bar_issue_top5" style="height: 200px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-12">
+                <div class="card rounded-0">
+                    <div class="card-body">
+                        <h6 style="font-weight: 600">Line Chart</h6>
+                        <div id="morris_line_chart" style="height: 180px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row p-2">
             <div class="col-md-11">
                 <div class="card rounded-0">

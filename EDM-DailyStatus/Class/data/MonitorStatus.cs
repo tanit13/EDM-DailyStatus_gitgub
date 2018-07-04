@@ -9,6 +9,9 @@ namespace EDM_DailyStatus.Class.data
     {
         private string status;
         private string status_name;
+        private string status_pic;
+        private string status_timeline;
+        private string status_sla;
         private string work_name;
         private string batch_name;
         private string business_date;
@@ -19,6 +22,7 @@ namespace EDM_DailyStatus.Class.data
         private string stream;
         private string sla;
         private string c_sla;
+        
         private string avg_c;
         private string avg;
         private string min;
@@ -26,6 +30,8 @@ namespace EDM_DailyStatus.Class.data
         private string first_supportor_id;
         private string wait_appl;
         private string impact_appl;
+
+        private string timeline;
 
         public string Status_name { get; set; }
         public string Work_name { get; set; }
@@ -72,11 +78,15 @@ namespace EDM_DailyStatus.Class.data
                     status = " <button type = 'button' class='button_status btn btn-warning' ></button>";
                     //status = "btn btn-warning";
                 }
-                else {
+                else if (value == "3")
+                {
                     // value == 3
                     status = " <button type = 'button' class='button_status btn btn-success' ></button>";
                     //status = "btn btn-success";
-                }                 
+                }
+                else {
+                    status = value;
+                }                
             }
         }
 
@@ -98,5 +108,53 @@ namespace EDM_DailyStatus.Class.data
         public string First_supportor_id { get ; set ; }
         public string Wait_appl { get; set; }
         public string Impact_appl { get; set; }
+        public string Status_pic { get; set; }
+        public string Timeline { get; set; }
+        public string Status_timeline
+        {
+            get { return status_timeline; }
+
+            set
+            {
+                if (value == "1")
+                {
+                    status_timeline = " <button type ='button' style='background-color:#212529;' class='button_status_timeline btn' ></button>";
+                }
+                else if (value == "2")
+                {
+                    status_timeline = " <button type = 'button' class='button_status_timeline pulse-button btn btn-warning' ></button>";
+                    //status = "btn btn-warning";
+                }
+                else if (value == "3")
+                {
+                    // value == 3
+                    status_timeline = " <button type = 'button' class='button_status_timeline btn btn-success' ></button>";
+                    //status = "btn btn-success";
+                }
+                else
+                {
+                    status = value;
+                }
+            }
+        }
+
+        public string Status_sla
+        {
+            get { return status_sla; }
+
+            set {
+                switch (value) {
+                    case "Meet":
+                        status_sla = " <button type = 'button' class='button_status_timeline btn btn-success' ></button>";
+                        break;
+                    case "Miss":
+                        status_sla = " <button type = 'button' class='button_status_timeline btn btn-danger' ></button>";
+                        break;
+                    case "NA":
+                        status_sla = " <button type ='button' style='background-color:#212529;' class='button_status_timeline btn' ></button>";
+                        break;
+                }
+            }
+        }
     }
 }

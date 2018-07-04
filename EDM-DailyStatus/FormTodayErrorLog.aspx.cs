@@ -1,10 +1,14 @@
 ﻿using BTE.Class;
+using EDM_DailyStatus.Class.data;
+using EDM_DailyStatus.Class.service;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TDR.Class;
@@ -45,7 +49,7 @@ namespace EDM_DailyStatus
                 str_data.Append("<td>").Append(dt.Rows[i]["process_name"].ToString()).Append("</td>");
                 str_data.Append("<td>").Append(dt.Rows[i]["auto_analyze_log"].ToString()).Append("</td>");
                 str_data.Append("<td>").Append(dt.Rows[i]["sys_log"].ToString()).Append("</td>");
-                str_data.Append("</tr>");              
+                str_data.Append("</tr>");
             }
             if (dt.Rows.Count > 0) {
                 dte_start.Value = dt.Rows[0]["default_start_date"].ToString();
@@ -53,6 +57,40 @@ namespace EDM_DailyStatus
             }
 
              lt_today_error.Text = str_data.ToString();
+        }
+
+        [WebMethod]
+        public static string dataSummarGroupTop() {
+            ChartDAO chartDao = new ChartDAO();
+            List<SummaryIssue> lst = new List<SummaryIssue>();           
+
+            lst = chartDao.dataSummaryGroupTop();
+            string str_data = new JavaScriptSerializer().Serialize(lst);
+
+            return str_data;
+        }
+
+        [WebMethod]
+        public static string dataSummarIssueTop()
+        {
+            ChartDAO chartDao = new ChartDAO();
+            List<SummaryIssue> lst = new List<SummaryIssue>();
+
+            lst = chartDao.dataSummaryIssueTop();
+            string str_data = new JavaScriptSerializer().Serialize(lst);
+
+            return str_data;
+        }
+
+        [WebMethod]
+        public static string dataReportSummaryIssue() {
+            ChartDAO chartDao = new ChartDAO();
+            List<SummaryIssue> lst = new List<SummaryIssue>();
+
+            lst = chartDao.dataReportSummaryIssue();
+            string str_data = new JavaScriptSerializer().Serialize(lst);
+
+            return str_data;
         }
     }
 }
