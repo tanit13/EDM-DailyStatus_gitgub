@@ -55,6 +55,17 @@ namespace EDM_DailyStatus
             return str_json;
         }
 
+        [WebMethod]
+        public static string getGroupSumAjax() {
+            
+            GroupDAO groupDAO = new GroupDAO();
+
+            string str_json = new JavaScriptSerializer().Serialize(groupDAO.getGroupSummary());
+
+            return str_json;
+
+        }
+
 
 
     }

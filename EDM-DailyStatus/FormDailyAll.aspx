@@ -36,7 +36,7 @@
     <!-- js for chart --->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <!-- js chart common -->
-    <script src="js_chart/chart_common.js"></script>
+    <script src="js_chart/chart_common.js?n=1"></script>
 
 
     <!-- js angular -->

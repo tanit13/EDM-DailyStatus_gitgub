@@ -35,16 +35,16 @@
     <script type="text/javascript" src="js/js_common.js"></script>
 
 
-     <asp:Literal ID="lt_json_status_all" runat="server"></asp:Literal>
+    <asp:Literal ID="lt_json_status_all" runat="server"></asp:Literal>
     <asp:Literal ID="lt_json_monitor" runat="server"></asp:Literal>
     <asp:Literal ID="lt_json_running" runat="server"></asp:Literal>
     <asp:Literal ID="lt_json_completed" runat="server"></asp:Literal>
 
     <script>
-         /**
-         * Formatting function for row details-modify as you need
-         *  'd' is the original data object for the row
-         */
+        /**
+        * Formatting function for row details-modify as you need
+        *  'd' is the original data object for the row
+        */
         function formatTable(d) {
 
             return '<table cellpadding="2" cellspacing="0" border="0" style="padding-left:50px;background-color:whitesmoke;" >' +
@@ -78,15 +78,15 @@
                 '</tr>' +
                 '<tr>' +
                 '<th style="text-align:right;">Person : </th>' +
-                '<td>'+ d.First_supportor_id +'</td>' +
+                '<td>' + d.First_supportor_id + '</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th style="text-align:right;">Wait App : </th>' +
-                '<td>'+ d.Wait_appl +'</td>' +
+                '<td>' + d.Wait_appl + '</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th style="text-align:right;">Impact App : </th>' +
-                '<td>'+ d.Impact_appl +'</td>' +
+                '<td>' + d.Impact_appl + '</td>' +
                 '</tr>' +
                 '</table>';
         }
@@ -99,7 +99,7 @@
             var dataJsonStatusAllMonitor = va_monitor;
             var dataJsonStatusAllRunning = va_running;
             var dataJsonStatusAllCompleted = va_completed;
-           
+
             var column_status = [
                 { data: 'Status' },
                 { data: 'Status_name' },
@@ -128,17 +128,17 @@
 
             // init table status
             //    $('#tbl_edw_all_status').dataTable().fnClearTable();        
-            if(dataJsonStatusAll != "")
-            $('#tbl_sas_all_status').dataTable().fnAddData(dataJsonStatusAll);
+            if (dataJsonStatusAll != "")
+                $('#tbl_sas_all_status').dataTable().fnAddData(dataJsonStatusAll);
             //   $('#tbl_edw_monitor').dataTable().fnClearTable();
-            if(dataJsonStatusAllMonitor != "")
-            $('#tbl_sas_monitor').dataTable().fnAddData(dataJsonStatusAllMonitor);
+            if (dataJsonStatusAllMonitor != "")
+                $('#tbl_sas_monitor').dataTable().fnAddData(dataJsonStatusAllMonitor);
             //     $('#tbl_edw_running').dataTable().fnClearTable();
-            if(dataJsonStatusAllRunning != "")
-            $('#tbl_sas_running').dataTable().fnAddData(dataJsonStatusAllRunning);
+            if (dataJsonStatusAllRunning != "")
+                $('#tbl_sas_running').dataTable().fnAddData(dataJsonStatusAllRunning);
             //    $('#tbl_edw_finished').dataTable().fnClearTable();
-            if(dataJsonStatusAllCompleted != "")
-            $('#tbl_sas_finished').dataTable().fnAddData(dataJsonStatusAllCompleted);
+            if (dataJsonStatusAllCompleted != "")
+                $('#tbl_sas_finished').dataTable().fnAddData(dataJsonStatusAllCompleted);
 
             //Add event listener for opening and closing details
             $('#tbl_sas_all_status tbody').on('click', 'td .button_status', function () {
@@ -264,7 +264,6 @@
         <form id="frmSAS" runat="server">
             <div class="row">
                 <div class="col-sm-9">
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card rounded-0">
@@ -272,15 +271,17 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <div class="row">
-                                                <div class="col-sm-1"><img class="justify-content-start" width="65" src="pic/logo_sas.png" /></div>
-                                                <div class="col-sm-5 align-items-end"><h6><small>&nbsp;Status</small></h6></div>
+                                                <div class="col-sm-1">
+                                                    <img class="justify-content-start" width="65" src="pic/logo_sas.png" /></div>
+                                                <div class="col-sm-5 align-items-end">
+                                                    <h6><small>&nbsp;Status</small></h6>
+                                                </div>
                                             </div>
-                                           <%-- <table class="p-2">
+                                            <%-- <table class="p-2">
                                                 <tr><td><img width="65" src="pic/logo_sas.png" /></td><td><h6><span class="badge badge-secondary">Status</span></h6></td></tr>                                                
                                             </table>--%>
 
                                             <%--<div><img width="65px" src="pic/logo_sas.png" /></div><div><h6>Status</h6></div>--%>
-                                            
                                         </div>
                                         <div class="col-md-2 text-right">
                                             <a class="text-dark" data-toggle="collapse" href="#collapse_tbl_sas_status">
@@ -577,14 +578,19 @@
                             <div class="card">
                                 <div class="card-header bg-white">
                                     <table>
-                                        <tr><td><i class="fa fa-bar-chart fa-2x text-info"></i></td><td><h6>&nbsp;&nbsp;SAS Progress</h6></td></tr>
-                                    </table>                                    
+                                        <tr>
+                                            <td><i class="fa fa-bar-chart fa-2x text-info"></i></td>
+                                            <td>
+                                                <h6>&nbsp;&nbsp;SAS Progress</h6>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <div class="card-body">
                                     <div class="row p-2">
 
                                         <div class="col-sm-6 border-primary" style="display: block;">
-                                            <h4 runat="server" id="h_num_monitor">0</h4>                                            
+                                            <h4 runat="server" id="h_num_monitor">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td style="font-size: 12px;">Monitor</td>
@@ -594,10 +600,10 @@
                                             <div class="progress" style="height: 3px;">
                                                 <div runat="server" id="probar_monitor" class="progress-bar bg-dark" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                        </div>                 
+                                        </div>
 
                                         <div class="col-6">
-                                            <h4 runat="server" id="h_num_running">0</h4>                                            
+                                            <h4 runat="server" id="h_num_running">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td style="font-size: 12px;">Running</td>
@@ -611,8 +617,8 @@
                                     </div>
                                     <div class="row p-2">
 
-                                        
-                                          <div class="col-sm-6 border-primary" style="display: block;">
+
+                                        <div class="col-sm-6 border-primary" style="display: block;">
                                             <h4 runat="server" id="h_num_completed">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
@@ -626,7 +632,7 @@
                                         </div>
 
                                         <div class="col-6">
-                                            <h4 runat="server" id="h_num_total">0</h4>                                            
+                                            <h4 runat="server" id="h_num_total">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td style="font-size: 12px;">Total</td>
@@ -638,7 +644,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -649,16 +655,20 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header bg-white">                                  
+                                <div class="card-header bg-white">
                                     <table>
-                                        <tr><td><i class="fa fa-line-chart fa-2x text-info"></i></td><td><h6>&nbsp;&nbsp;SLA Progress</h6></td></tr>
-                                    </table>   
+                                        <tr>
+                                            <td><i class="fa fa-line-chart fa-2x text-info"></i></td>
+                                            <td>
+                                                <h6>&nbsp;&nbsp;SLA Progress</h6>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <div class="card-body">
                                     <div class="row p-2">
-
                                         <div class="col-sm-6 border-primary" style="display: block;">
-                                            <h4 runat="server" id="h_num_meet">0</h4>                                            
+                                            <h4 runat="server" id="h_num_meet">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td style="font-size: 12px;">MEET</td>
@@ -668,10 +678,9 @@
                                             <div class="progress" style="height: 3px;">
                                                 <div runat="server" id="probar_meet" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                        </div>                 
-
+                                        </div>
                                         <div class="col-6">
-                                            <h4 runat="server" id="h_num_miss">0</h4>                                            
+                                            <h4 runat="server" id="h_num_miss">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td style="font-size: 12px;">MISS</td>
@@ -685,8 +694,8 @@
                                     </div>
                                     <div class="row p-2">
 
-                                        
-                                          <div class="col-sm-6 border-primary" style="display: block;">
+
+                                        <div class="col-sm-6 border-primary" style="display: block;">
                                             <h4 runat="server" id="h_num_na">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
@@ -700,7 +709,7 @@
                                         </div>
 
                                         <div class="col-6">
-                                            <h4 runat="server" id="h_num_total_sla">0</h4>                                            
+                                            <h4 runat="server" id="h_num_total_sla">0</h4>
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td style="font-size: 12px;">SLA Total</td>
@@ -712,7 +721,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>

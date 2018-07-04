@@ -44,6 +44,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LineMessaging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=87b8bf75172142fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\LineMessaging.1.2.0\lib\net45\LineMessaging.dll</HintPath>
+    </Reference>
     <Reference Include="LineNotify_new, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\333229\Desktop\LineNotify_new\LineNotify_new.dll</HintPath>
@@ -52,11 +55,20 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,32 +100,53 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\callout.css" />
+    <Content Include="css\common.css" />
     <Content Include="css\control-search-dropdown.css" />
     <Content Include="css\control-style.css" />
+    <Content Include="css\css-circular-prog-bar.css" />
+    <Content Include="css\css_edw.css" />
     <Content Include="css\datepicker.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\global.css" />
+    <Content Include="css\hover-min.css" />
+    <Content Include="css\hover.css" />
     <Content Include="css\jquery.circliful.css" />
     <Content Include="css\material-design-iconic-font.css" />
     <Content Include="css\material-design-iconic-font.min.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\popmenu.css" />
     <Content Include="css\searchtxtbox.css" />
+    <Content Include="css_alchemy\alchemy-white.css" />
+    <Content Include="css_alchemy\alchemy.css" />
+    <Content Include="css_alchemy\alchemy.min.css" />
+    <Content Include="FormLogin.aspx" />
+    <Content Include="scripts\vendor.js" />
+    <Content Include="styles\vendor.css" />
     <Content Include="css_calendar\fullcalendar.css" />
     <Content Include="css_calendar\fullcalendar.min.css" />
     <Content Include="css_calendar\fullcalendar.print.css" />
     <Content Include="css_calendar\fullcalendar.print.min.css" />
     <Content Include="css_status\common.css" />
     <Content Include="Default.aspx" />
+    <Content Include="eCharts.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\jQueryTimeline.svg" />
     <Content Include="fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="FormAlchemy.aspx" />
+    <Content Include="FormBigdata.aspx" />
     <Content Include="FormCalendar.aspx" />
+    <Content Include="FormDailyAll_v2.aspx" />
     <Content Include="FormDailyAll.aspx" />
     <Content Include="FormDaily.aspx" />
+    <Content Include="FormEDM_v1.aspx" />
+    <Content Include="FormEDM_v2.aspx" />
+    <Content Include="FormEDW_v3.aspx" />
+    <Content Include="FormSAS_v2.aspx" />
+    <Content Include="FormEDW_v2.aspx" />
     <Content Include="FormEDW.aspx" />
+    <Content Include="FormLineNotifyAll.aspx" />
     <Content Include="FormLineNotifyEDW.aspx" />
     <Content Include="FormLogging.aspx" />
     <Content Include="FormMain.aspx" />
@@ -144,6 +177,7 @@
     <Content Include="js\bootstrap3-typeahead.min.js" />
     <Content Include="js\chosen.css" />
     <Content Include="js\chosen.jquery.js" />
+    <Content Include="js\echarts.min.js" />
     <Content Include="js\general.js" />
     <Content Include="js\html2canvas.min.js" />
     <Content Include="js\html5.js" />
@@ -159,6 +193,8 @@
     <Content Include="js\npm.js" />
     <Content Include="js\respond.js" />
     <Content Include="js\viz.js" />
+    <Content Include="js_alchemy\alchemy.js" />
+    <Content Include="js_alchemy\alchemy.min.js" />
     <Content Include="js_calendar\fullcalendar.js" />
     <Content Include="js_calendar\fullcalendar.min.js" />
     <Content Include="js_calendar\gcal.js" />
@@ -173,6 +209,10 @@
     <Content Include="dist\fonts\jQueryTimeline.svg" />
     <Content Include="dist\timeline.min.css" />
     <Content Include="dist\timeline.min.js" />
+    <Content Include="js_chart\chart_morris_bar.js" />
+    <Content Include="pic\avatar-s-7.png" />
+    <Content Include="pic\IMG_2737.JPG" />
+    <Content Include="pic\IMG_2740.jpg" />
     <Content Include="pic\logo_bigdata.svg" />
     <Content Include="pic\logo_oracle.svg" />
     <Content Include="pic\logo_teradata.png" />
@@ -180,6 +220,7 @@
     <Content Include="solutionToFix.aspx" />
     <Content Include="StreamKey.aspx" />
     <Content Include="streamAjax.aspx" />
+    <Content Include="testChartLline.aspx" />
     <Content Include="testCreateForm.aspx" />
     <Content Include="testTimeline.aspx" />
     <Content Include="Web.config">
@@ -194,26 +235,41 @@
     <Compile Include="bayAzure.aspx.designer.cs">
       <DependentUpon>bayAzure.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Class\app\AppUserInfo.cs" />
+    <Compile Include="Class\app\LineBotApp.cs" />
+    <Compile Include="Class\app\SendLineAll.cs" />
     <Compile Include="Class\BoostrapEvent.cs" />
     <Compile Include="Class\CeateHightChart.cs" />
     <Compile Include="Class\ClassMail.cs" />
     <Compile Include="Class\DatabaseManager.cs" />
+    <Compile Include="Class\data\BigDvStatus.cs" />
+    <Compile Include="Class\data\BigMonitor.cs" />
     <Compile Include="Class\data\Calendar.cs" />
+    <Compile Include="Class\data\CatName.cs" />
     <Compile Include="Class\data\Chart.cs" />
+    <Compile Include="Class\data\ConfigLineNotify.cs" />
+    <Compile Include="Class\data\DvMonitor.cs" />
     <Compile Include="Class\data\Group.cs" />
     <Compile Include="Class\data\JsonTimeLine.cs" />
     <Compile Include="Class\data\LoggingError.cs" />
     <Compile Include="Class\data\MonitorStatus.cs" />
+    <Compile Include="Class\data\MorrisLineChart.cs" />
+    <Compile Include="Class\data\Sla.cs" />
     <Compile Include="Class\data\StreamHealthy.cs" />
+    <Compile Include="Class\data\SummaryProject.cs" />
+    <Compile Include="Class\data\SummaryIssue.cs" />
+    <Compile Include="Class\data\TimelineEDM.cs" />
     <Compile Include="Class\DomainController.cs" />
     <Compile Include="Class\LineNotify.cs" />
     <Compile Include="Class\network\ClientSSH.cs" />
     <Compile Include="Class\OraManager.cs" />
+    <Compile Include="Class\service\BigDvDAO.cs" />
     <Compile Include="Class\service\CalendarDAO.cs" />
     <Compile Include="Class\service\ChartDAO.cs" />
     <Compile Include="Class\service\GroupDAO.cs" />
     <Compile Include="Class\service\LoggingDAO.cs" />
     <Compile Include="Class\service\OracleReportDAO.cs" />
+    <Compile Include="Class\service\SlaDAO.cs" />
     <Compile Include="Class\service\StreamDAO.cs" />
     <Compile Include="Class\TeraManager.cs" />
     <Compile Include="Class\Validation.cs" />
@@ -224,12 +280,40 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="eCharts.aspx.cs">
+      <DependentUpon>eCharts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eCharts.aspx.designer.cs">
+      <DependentUpon>eCharts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormAlchemy.aspx.cs">
+      <DependentUpon>FormAlchemy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormAlchemy.aspx.designer.cs">
+      <DependentUpon>FormAlchemy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormBigdata.aspx.cs">
+      <DependentUpon>FormBigdata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormBigdata.aspx.designer.cs">
+      <DependentUpon>FormBigdata.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormCalendar.aspx.cs">
       <DependentUpon>FormCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FormCalendar.aspx.designer.cs">
       <DependentUpon>FormCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormDailyAll_v2.aspx.cs">
+      <DependentUpon>FormDailyAll_v2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormDailyAll_v2.aspx.designer.cs">
+      <DependentUpon>FormDailyAll_v2.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormDailyAll.aspx.cs">
       <DependentUpon>FormDailyAll.aspx</DependentUpon>
@@ -245,12 +329,61 @@
     <Compile Include="FormDaily.aspx.designer.cs">
       <DependentUpon>FormDaily.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormEDM_v1.aspx.cs">
+      <DependentUpon>FormEDM_v1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormEDM_v1.aspx.designer.cs">
+      <DependentUpon>FormEDM_v1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormEDM_v2.aspx.cs">
+      <DependentUpon>FormEDM_v2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormEDM_v2.aspx.designer.cs">
+      <DependentUpon>FormEDM_v2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormEDW_v3.aspx.cs">
+      <DependentUpon>FormEDW_v3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormEDW_v3.aspx.designer.cs">
+      <DependentUpon>FormEDW_v3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.aspx.cs">
+      <DependentUpon>FormLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormLogin.aspx.designer.cs">
+      <DependentUpon>FormLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormSAS_v2.aspx.cs">
+      <DependentUpon>FormSAS_v2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormSAS_v2.aspx.designer.cs">
+      <DependentUpon>FormSAS_v2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormEDW_v2.aspx.cs">
+      <DependentUpon>FormEDW_v2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormEDW_v2.aspx.designer.cs">
+      <DependentUpon>FormEDW_v2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormEDW.aspx.cs">
       <DependentUpon>FormEDW.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FormEDW.aspx.designer.cs">
       <DependentUpon>FormEDW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormLineNotifyAll.aspx.cs">
+      <DependentUpon>FormLineNotifyAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormLineNotifyAll.aspx.designer.cs">
+      <DependentUpon>FormLineNotifyAll.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormLineNotifyEDW.aspx.cs">
       <DependentUpon>FormLineNotifyEDW.aspx</DependentUpon>
@@ -329,6 +462,13 @@
     </Compile>
     <Compile Include="streamAjax.aspx.designer.cs">
       <DependentUpon>streamAjax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testChartLline.aspx.cs">
+      <DependentUpon>testChartLline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testChartLline.aspx.designer.cs">
+      <DependentUpon>testChartLline.aspx</DependentUpon>
     </Compile>
     <Compile Include="testCreateForm.aspx.cs">
       <DependentUpon>testCreateForm.aspx</DependentUpon>

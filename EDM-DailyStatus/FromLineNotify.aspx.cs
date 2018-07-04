@@ -30,7 +30,10 @@ namespace EDM_DailyStatus
             Console.Out.WriteLine("size == " + test.Length);
             string str_token = "Bearer MY0LqXiDDGUhdveI7WvFsIEXSAQNUXfucVX3VMuXGGq ----";
 
-           
+            str_token = "Bearer mKbIfvmrq75c8Ljz3Ipuhn96LUfgdvP8wy0JmqkibXR";
+
+            str_sent.Append("test");
+
             Console.Out.WriteLine(test.Length);
             //   if (lineNoti.SendMessage("Bearer MYM1A0qV571lAYW5ea41SbtUpodZNCyny4ayV9aiqET", "\n" + msg))
             if (lineNoti.SendMessage(str_token, "\n" + str_sent.ToString()))         

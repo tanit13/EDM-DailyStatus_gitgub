@@ -10,6 +10,17 @@ var columns_table_stream = [
     { data: 'Stream_end_time' }
 ];
 
+
+var conlumns_table_group_sum = [
+    { data: 'Group' },
+    { data: 'Completed' },
+    { data: 'Running' },
+    { data: 'Failed' },
+    { data: 'Notstart' },
+    { data: 'Except' },
+    { data: 'Total' }
+];
+
 //-- variables for chart status object ----
 var chartStatus;
 
@@ -96,7 +107,7 @@ function initCanvasChartStatus() {
 //-- function init table bootstrap ---
 function initTableStream() {
 
-    $('#tbl_group_sum').DataTable();
+    //$('#tbl_group_sum').DataTable();
 
 
     $('#table_alert_stream').DataTable();
@@ -124,7 +135,9 @@ function initTableStream() {
         columns: columns_table_stream
     });
 
-  
+    //$('#tbl_group_sum').DataTable({
+    //    columns: conlumns_table_group_sum
+    //});
     
 }
 

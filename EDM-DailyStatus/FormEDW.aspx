@@ -93,7 +93,7 @@
                 '</table>';
         }
 
-     
+
 
         $(document).ready(function () {
 
@@ -115,8 +115,8 @@
                 { data: 'Job_start_date' },
                 { data: 'Job_end_date' },
                 { data: 'Frequency' }
-                //  { data: 'Est_hours' },
-                //  { data: 'Avg_c' }
+                // { data: 'Est_hours' },
+                //{ data: 'Avg_c' }
             ];
 
             $('#tbl_edw_all_frequency').DataTable();
@@ -731,23 +731,6 @@
                     </div>
                     <!-- end summary sla -->
                 </div>
-
-                <!-- edw sla time line -->
-                <%-- <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <input type="button" onclick="drawChart();" />GGGG
-                            </div>
-                            <div class="card-body">
-                                <div class="container">
-                                    <div id="sla_timeline" style="width: 1200px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>--%>
-                <%--<i class="fa fa-arrow-down text-danger"></i>--%>
             </div>
 
 

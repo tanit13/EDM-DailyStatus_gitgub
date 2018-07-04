@@ -1,8 +1,12 @@
-﻿using LineNotify_new;
+﻿using EDM_DailyStatus.Class.data;
+using LineNotify_new;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using ORA.Class;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -29,18 +33,19 @@ namespace EDM_DailyStatus
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    str_data += dt.Rows[i]["text_"].ToString();
+                    str_data += dt.Rows[i]["text_"].ToString(); 
+                    
                 }
 
                 str_sent = str_data.Replace("\\n", "\n");
 
-
+                
                 /* -------- sent line notiry ------------ */
                 LineNotify lineNoti = new LineNotify();   //Bearer mKbIfvmrq75c8Ljz3Ipuhn96LUfgdvP8wy0JmqkibXR  -- key test
 
-                //if (lineNoti.SendMessage("Bearer MYM1A0qV571lAYW5ea41SbtUpodZNCyny4ayV9aiqET", "\n" + str_sent))   -- key edw
-                    if (lineNoti.SendMessage("Bearer mKbIfvmrq75c8Ljz3Ipuhn96LUfgdvP8wy0JmqkibXR", "\n" + str_sent))
-                    {
+                // if (lineNoti.SendMessage("Bearer MYM1A0qV571lAYW5ea41SbtUpodZNCyny4ayV9aiqET", "\n" + str_sent)) --key edw
+                if (lineNoti.SendMessage("Bearer mKbIfvmrq75c8Ljz3Ipuhn96LUfgdvP8wy0JmqkibXR", "\n" + str_sent))
+                {
                     Console.Out.WriteLine("sent line notify success..." + lineNoti.LineError);
                 }
                 else
@@ -54,5 +59,19 @@ namespace EDM_DailyStatus
                 Console.Out.WriteLine(ex.Message.ToString());
             }
         }
+
+
+        public void sendLine (){
+
+            using (StreamReader r = new StreamReader(@"D:\Project\Dev\configLine.json"))
+            {
+                string json = r.ReadToEnd();
+                List<ConfigLineNotify> items = JsonConvert.DeserializeObject<List<ConfigLineNotify>>(json);
+
+                Console.WriteLine("");
+            }
+
+        }
+
     }
 }
